@@ -19,11 +19,11 @@ class LPR_File( object ):
     def add_form(self, new_form_name=None):
         
         if new_form_name is None:
-            print "Need a valid new_form_name in lpi_wrapper"
+            print("Need a valid new_form_name in lpi_wrapper")
             sys.exit()
             
         if new_form_name.lower() in self.form_name_set:
-            print "Duplicate form names are NOT allowed in lpi_wrapper"
+            print("Duplicate form names are NOT allowed in lpi_wrapper")
             sys.exit()
             
         self.form_name_set.add( new_form_name.lower() )
@@ -39,8 +39,8 @@ class LPR_File( object ):
         return LPR_TEMPLATE_STR % (self.project_name,  ', '.join(self.unit_nameL),  '\n'.join(L))
     
     def summ_print(self):
-        print 'unit_nameL =',self.unit_nameL
-        print self.file_contents()
+        print('unit_nameL =',self.unit_nameL)
+        print(self.file_contents())
         
 
 LPR_TEMPLATE_STR = """program %s;

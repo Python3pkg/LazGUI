@@ -1,6 +1,6 @@
 
 
-from widget import Widget
+from .widget import Widget
 
 class RadioGroup( Widget ):
 
@@ -75,6 +75,6 @@ if __name__ == '__main__':
                  Caption='Pick One', has_OnClick=False, has_OnSelectionChanged=True,
                  AutoSize=True)
                  
-    print F.pas_file_implement()
-    print '='*55
-    print F.lfm_file_contents()
+    print(F.pas_file_implement())
+    print('='*55)
+    print(F.lfm_file_contents())

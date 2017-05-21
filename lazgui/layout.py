@@ -126,15 +126,15 @@ class Layout( object ):
         self.recalc()
         
     def summ_print(self):
-        print '='*55
-        print self.full_widget_name,' BBox=',self.BBox
+        print('='*55)
+        print(self.full_widget_name,' BBox=',self.BBox)
         outL = []
         for widget in self.lay_widgetL:
             outL.append( ['Left=%3i'%widget.Left, 'Top=%3i'%widget.Top, 
                           widget.full_widget_name, 'BBox=%s'%widget.BBox, 
                           'AW=%s'%widget.ActualWidth, 'AH=%s'%widget.ActualHeight] )
         for L in sorted(outL):
-            print '   '.join( ['%s'%s for s in L] )
+            print('   '.join( ['%s'%s for s in L] ))
 
     def lfm_file_contents(self):
         sL = []
@@ -207,13 +207,13 @@ class GridPanel( Layout ):
         #print 'self.grid_rowcolD =',self.grid_rowcolD
         
         # initialize row column H W values
-        for row_col in self.grid_widgetD.keys():
+        for row_col in list(self.grid_widgetD.keys()):
             row,col = row_col
             rowHtD[row] = 0
             colWdD[col] = 0
 
         # Figure out Width and Height of each specified row and col
-        for row_col, wL in self.grid_widgetD.items():
+        for row_col, wL in list(self.grid_widgetD.items()):
             row,col = row_col
             w,h = 0,0
             for widget in wL:
@@ -250,7 +250,7 @@ class GridPanel( Layout ):
         #print 'col_posL, D =',col_posL, col_posD
         
         # Calc positions for each widget.
-        for row_col, wL in self.grid_widgetD.items():
+        for row_col, wL in list(self.grid_widgetD.items()):
             row,col = row_col
             dy = 0
             for widget in wL:
@@ -365,7 +365,7 @@ class HStackPanel( Layout ):
 
 
 if __name__ == '__main__':
-    from widget import Widget
+    from .widget import Widget
     
     GP = GridPanel( )
     for i in [3,5,9]:

@@ -1,6 +1,6 @@
 """Represents a Form object in Lazarus"""
-from laz_snippets import *
-import ini_supt
+from .laz_snippets import *
+from . import ini_supt
 
 pasStrTypeD = {type(1):'Integer', type(1.23):'Double', 
                type('str'):'String', type(True):'Boolean'}
@@ -67,12 +67,12 @@ class Form( object ):
         # if layout is bigger than form, increase size of form
         H = layout.ActualHeight + layout.Top + layout.BottomMargin
         if self.Height < H:
-            print 'Increasing Height from',self.Height,'to',H
+            print('Increasing Height from',self.Height,'to',H)
             self.Height = H
             
         W = layout.ActualWidth + layout.Left + layout.RightMargin
         if self.Width < W:
-            print 'Increasing Width from',self.Width,'to',W
+            print('Increasing Width from',self.Width,'to',W)
             self.Width = W
         self.ClientHeight = self.Height
         self.ClientWidth = self.Width
@@ -249,9 +249,9 @@ class Form( object ):
 
 
 if __name__ == '__main__':
-    from button import Button
-    from edit import Edit
-    from layout import VStackPanel
+    from .button import Button
+    from .edit import Edit
+    from .layout import VStackPanel
     
     Lay = VStackPanel(Left=10,  Height=0,  Top=10,  Width=0, 
                           TopMargin=10, RightMargin=10, BottomMargin=10, LeftMargin=10)
@@ -267,6 +267,6 @@ if __name__ == '__main__':
                  
 
     #print F.lfm_file_contents()
-    print '='*55
-    print F.pas_file_contents()
-    print '='*55
+    print('='*55)
+    print(F.pas_file_contents())
+    print('='*55)

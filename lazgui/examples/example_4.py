@@ -29,7 +29,7 @@ Lay.add_widget( Edit( widget_name='Get_Bool', initial_value=True) , row=2, col=1
 Lay.add_widget( Edit(widget_name='At Bottom', Width=100), row=3, col=2 )
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = Form( form_name='MyForm1', layout=Lay,
           Left=611,  Height=240,  Top=162,  Width=320, 

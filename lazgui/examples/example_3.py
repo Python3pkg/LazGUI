@@ -17,14 +17,14 @@ from lazgui.layout import VStackPanel, HStackPanel, GridPanel
 
 Lay = GridPanel( )
 Lay.add_widget( Button(widget_name='On Top', Width=100), row=0, col=0 )
-for j in xrange(3):
+for j in range(3):
     Lay.add_widget( LabeledEdit(label_text='Enter #%i'%j + j*'abc'), 
                     row=1, col=j)
 
 Lay.add_widget( Edit(widget_name='At Bottom', Width=100), row=2, col=2 )
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = Form( form_name='MyForm1', layout=Lay,
           Left=611,  Height=240,  Top=162,  Width=320, 

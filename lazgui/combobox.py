@@ -1,6 +1,6 @@
 
 
-from widget import Widget
+from .widget import Widget
 
 class ComboBox( Widget ):
 
@@ -67,6 +67,6 @@ if __name__ == '__main__':
                  TopMargin=10, RightMargin=10, BottomMargin=10, LeftMargin=10,
                  has_OnClick=False, has_OnSelect=True)
                  
-    print F.pas_file_implement()
-    print '='*55
-    print F.lfm_file_contents()
+    print(F.pas_file_implement())
+    print('='*55)
+    print(F.lfm_file_contents())

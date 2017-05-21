@@ -35,9 +35,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 ref_proj_files = os.path.join( here, 'ref_proj_files' )
 #print 'ref_proj_files =',ref_proj_files
 
-from lpi_wrapper import LPI_File
-from lps_wrapper import LPS_File
-from lpr_wrapper import LPR_File
+from .lpi_wrapper import LPI_File
+from .lps_wrapper import LPS_File
+from .lpr_wrapper import LPR_File
 
 # for multi-file projects see LICENSE file for authorship info
 # for single file projects, insert following information
@@ -83,29 +83,29 @@ class LazarusGUI(object):
         
     def save_project_files(self, path_name='', over_write_OK=False):
         if len(self.formL)==0:
-            print 'Can NOT create project... No Forms have been added.'
+            print('Can NOT create project... No Forms have been added.')
             return
             
         targ_abs_path = os.path.abspath( path_name )
         
         if os.path.isfile( targ_abs_path ):
-            print 'Can NOT create project... The provided path_name is an existing file.'
-            print 'Need to provide a directory name.'
-            print 'Existing file =',targ_abs_path
+            print('Can NOT create project... The provided path_name is an existing file.')
+            print('Need to provide a directory name.')
+            print('Existing file =',targ_abs_path)
             return
 
         if os.path.isdir( targ_abs_path ):
             if over_write_OK:
-                print 'Using existing directory for Lazarus project.'
-                print 'path_name =',targ_abs_path
+                print('Using existing directory for Lazarus project.')
+                print('path_name =',targ_abs_path)
             else:
-                print 'Can NOT create project... The provided directory already exists.'
-                print 'Enter a new directory name OR set parameter "over_write_OK=True".'
-                print 'Existing directory =',targ_abs_path
+                print('Can NOT create project... The provided directory already exists.')
+                print('Enter a new directory name OR set parameter "over_write_OK=True".')
+                print('Existing directory =',targ_abs_path)
                 return
         else:            
             os.mkdir( targ_abs_path )
-            print "created new Lazarus project directory:",targ_abs_path
+            print("created new Lazarus project directory:",targ_abs_path)
         
         form1 = self.formL[0]
         
@@ -122,54 +122,54 @@ class LazarusGUI(object):
         for copy_fname in ['get_set_io_var.pas', 'HistoryFiles.pas', 'HistoryLazarus.lrs']:
             src_fname = os.path.join( ref_proj_files, copy_fname )
             targ_fname = os.path.join( targ_abs_path, copy_fname )
-            print 'Copying',src_fname,' --> ',targ_fname
+            print('Copying',src_fname,' --> ',targ_fname)
             shutil.copy(src_fname, targ_fname)
         
         # Create  Resource File
         src_fname = os.path.join( ref_proj_files, 'project1.res' )
         targ_fname = os.path.join( targ_abs_path, '%s.res'%self.project_name )
-        print 'Copying',src_fname,' --> ',targ_fname
+        print('Copying',src_fname,' --> ',targ_fname)
         shutil.copy(src_fname, targ_fname)
         
         # Create  Icon
         src_fname = os.path.join( ref_proj_files, 'project1.ico' )
         targ_fname = os.path.join( targ_abs_path, '%s.ico'%self.project_name )
-        print 'Copying',src_fname,' --> ',targ_fname
+        print('Copying',src_fname,' --> ',targ_fname)
         shutil.copy(src_fname, targ_fname)
         
         # Create *.lpi file (i.e. ProjectOptions, Units, CompilerOptions, Debugging)
         targ_fname = os.path.join( targ_abs_path, '%s.lpi'%self.project_name )
-        print 'Saving --> ',targ_fname
+        print('Saving --> ',targ_fname)
         with open(targ_fname, 'w') as f:
             f.write( lpi_obj.file_contents() )
         
         # Create *.lps file (i.e. ProjectSession, Units, PathDelim)
         targ_fname = os.path.join( targ_abs_path, '%s.lps'%self.project_name )
-        print 'Saving --> ',targ_fname
+        print('Saving --> ',targ_fname)
         with open(targ_fname, 'w') as f:
             f.write( lps_obj.file_contents() )
         
         # Create *.lpr file (i.e. Pascal source for overall project)
         targ_fname = os.path.join( targ_abs_path, '%s.lpr'%self.project_name )
-        print 'Saving --> ',targ_fname
+        print('Saving --> ',targ_fname)
         with open(targ_fname, 'w') as f:
             f.write( lpr_obj.file_contents() )
         
         # Create *.pas and *.lfm for each of the Form units
         for form in self.formL:
             targ_fname = os.path.join( targ_abs_path, '%s.pas'%form.unit_name.lower() )
-            print 'Saving --> ',targ_fname
+            print('Saving --> ',targ_fname)
             with open(targ_fname, 'w') as f:
                 f.write( form.pas_file_contents() )
             
             targ_fname = os.path.join( targ_abs_path, '%s.lfm'%form.unit_name.lower() )
-            print 'Saving --> ',targ_fname
+            print('Saving --> ',targ_fname)
             with open(targ_fname, 'w') as f:
                 f.write( form.lfm_file_contents() )
                 
         # Create *.bat file to compile and run project
         targ_fname = os.path.join( targ_abs_path, '%s.bat'%self.project_name )
-        print 'Saving --> ',targ_fname
+        print('Saving --> ',targ_fname)
         with open(targ_fname, 'w') as f:
             f.write( BAT_FILE_TEMPLATE.format( **self.__dict__ ) )
         
@@ -182,22 +182,22 @@ rem Now try to run the EXE file
 """
 
 if __name__ == '__main__':
-    from form import Form
-    from button import Button
-    from labeled_edit import LabeledEdit
-    from layout import Layout
-    from layout import VStackPanel, HStackPanel
+    from .form import Form
+    from .button import Button
+    from .labeled_edit import LabeledEdit
+    from .layout import Layout
+    from .layout import VStackPanel, HStackPanel
     
     Lay = VStackPanel(Left=10,  Height=0,  Top=10,  Width=0, 
                           TopMargin=10, RightMargin=10, BottomMargin=10, LeftMargin=10)
     
 
-    for i in xrange(3):
+    for i in range(3):
         B = Lay.add_widget( Button( widget_name='DoSompin_%i'%i, Left=41+i*5,  Height=25,  
                                     Top=42+i*5,  Width=75+i*5, 
                                     Caption=None, has_OnClick=True) )
                     
-        print '#%i) bbox ='%i, B.BBox
+        print('#%i) bbox ='%i, B.BBox)
     
     Lay.add_widget(LabeledEdit( label_text='Enter Diameter', widget_name='GetDiam', 
                    initial_value='4.56789012345678905678901234567890',   

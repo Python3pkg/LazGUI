@@ -15,7 +15,7 @@ Lay.add_widget( get_button(widget_name='Do Wide Things', Width=100, TopMargin=0)
 
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = get_form( form_name='MyForm1', layout=Lay,
           Left=611,  Height=240,  Top=162,  Width=320, 

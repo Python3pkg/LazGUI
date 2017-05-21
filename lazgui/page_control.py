@@ -1,7 +1,7 @@
 
 
-from widget import Widget
-from panel import Panel
+from .widget import Widget
+from .panel import Panel
 
 class PageControl( Widget ):
 
@@ -61,9 +61,9 @@ class TabSheet( Panel ):
         
 
 if __name__ == '__main__':
-    from button import Button
-    from edit import Edit
-    from layout import VStackPanel, HStackPanel
+    from .button import Button
+    from .edit import Edit
+    from .layout import VStackPanel, HStackPanel
     
     
     Lay = VStackPanel(Left=10,  Height=0,  Top=10,  Width=0, 
@@ -86,6 +86,6 @@ if __name__ == '__main__':
     P.add_tabsheet( TabSheet(  layout=Lay,
                 widget_name='MyTab2', Left=41,  Height=25,  Top=42,  Width=75) )
                  
-    print P.pas_file_implement()
-    print '='*55
-    print P.lfm_file_contents()
+    print(P.pas_file_implement())
+    print('='*55)
+    print(P.lfm_file_contents())

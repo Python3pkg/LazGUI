@@ -1,6 +1,6 @@
 """Represents an object on a Form (eg. Button, Label, etc.)"""
 
-from widget import Widget
+from .widget import Widget
 
 class Panel( Widget ):
     
@@ -34,12 +34,12 @@ class Panel( Widget ):
             # if layout is bigger than form, increase size of form
             H = layout.ActualHeight + layout.Top + layout.BottomMargin
             if self.Height < H:
-                print 'Increasing Height from',self.Height,'to',H
+                print('Increasing Height from',self.Height,'to',H)
                 self.Height = H
                 
             W = layout.ActualWidth + layout.Left + layout.RightMargin
             if self.Width < W:
-                print 'Increasing Width from',self.Width,'to',W
+                print('Increasing Width from',self.Width,'to',W)
                 self.Width = W
             self.ClientHeight = self.Height
             self.ClientWidth = self.Width
@@ -88,10 +88,10 @@ class Panel( Widget ):
 
 
 if __name__ == '__main__':
-    from button import Button
-    from edit import Edit
-    from layout import VStackPanel
-    from gui_factory import *
+    from .button import Button
+    from .edit import Edit
+    from .layout import VStackPanel
+    from .gui_factory import *
 
     
     Lay = VStackPanel(Left=10,  Height=0,  Top=10,  Width=0, 
@@ -116,6 +116,6 @@ if __name__ == '__main__':
                 widget_name='MyPanel', Left=41,  Height=25,  Top=42,  Width=75, 
                 has_OnClick=True)
                  
-    print P.pas_file_implement()
-    print '='*55
-    print P.lfm_file_contents()
+    print(P.pas_file_implement())
+    print('='*55)
+    print(P.lfm_file_contents())

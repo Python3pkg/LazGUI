@@ -1,6 +1,6 @@
 """Represents an object on a Form (eg. Button, Label, etc.)"""
 
-from widget import Widget
+from .widget import Widget
 
 class LabeledEdit( Widget ):
     
@@ -77,6 +77,6 @@ if __name__ == '__main__':
                      Left=41,  Height=23,  Top=84,  Width=80, 
                      Caption=None, has_OnClick=True)
                  
-    print F.pas_file_implement()
-    print '='*55
-    print F.lfm_file_contents()
+    print(F.pas_file_implement())
+    print('='*55)
+    print(F.lfm_file_contents())

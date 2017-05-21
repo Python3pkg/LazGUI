@@ -49,7 +49,7 @@ Lay.add_widget( get_edit(widget_name='Get Other Stuff',
 
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = get_form( form_name='MyForm1', layout=Lay,
           Left=800,  Height=240,  Top=10,  Width=320, 

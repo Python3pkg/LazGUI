@@ -44,7 +44,7 @@ Lay.add_widget( HLay3 )
 
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = get_form( form_name='MyForm1', layout=Lay, has_file_menu=False,
           Left=611,  Height=240,  Top=162,  Width=320, 

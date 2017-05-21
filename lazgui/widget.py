@@ -293,8 +293,8 @@ if __name__ == '__main__':
                 widget_name='Generic', Left=41,  Height=25,  Top=42,  Width=75, 
                 Caption=None, has_OnClick=True, has_OnChange=False)
                  
-    print F.pas_var_define()
-    print '='*55
-    print F.pas_file_implement()
-    print '='*55
-    print F.lfm_file_contents()
+    print(F.pas_var_define())
+    print('='*55)
+    print(F.pas_file_implement())
+    print('='*55)
+    print(F.lfm_file_contents())

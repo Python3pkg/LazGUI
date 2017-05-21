@@ -15,16 +15,16 @@ from lazgui.layout import VStackPanel, HStackPanel, GridPanel
 
 
 Lay = HStackPanel( )
-for i in xrange(3):
+for i in range(3):
     Lay2 = VStackPanel(TopMargin=0, RightMargin=0, BottomMargin=0, LeftMargin=0)
-    for j in xrange(3):
+    for j in range(3):
         Lay2.add_widget( Button(widget_name='Btn'))
     Lay.add_widget( Lay2 )
 
 Lay.add_widget( Button(widget_name='Do Wide Things', Width=100) )
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = Form( form_name='MyForm1', layout=Lay,
           Left=611,  Height=240,  Top=162,  Width=320, 

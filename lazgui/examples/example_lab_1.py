@@ -25,7 +25,7 @@ Lay.add_widget( Edit(widget_name='Get Stuff', label_text='Enter Stuff') )
 
 
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = Form( form_name='MyForm1', layout=Lay,
           Left=611,  Height=240,  Top=162,  Width=320, 

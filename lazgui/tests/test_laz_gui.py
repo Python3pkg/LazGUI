@@ -77,7 +77,7 @@ class MyTest(unittest.TestCase):
 
 
         Lay.summ_print()
-        print '='*55
+        print('='*55)
 
         F = get_form( form_name='MyForm1', layout=Lay,
                   Left=800,  Height=240,  Top=10,  Width=320, 
@@ -128,7 +128,7 @@ class MyTest(unittest.TestCase):
 
 
         Lay.summ_print()
-        print '='*55
+        print('='*55)
 
         F = get_form( form_name='MyForm1', layout=Lay,
                   Left=800,  Height=240,  Top=10,  Width=320, 
@@ -203,7 +203,7 @@ class MyTest(unittest.TestCase):
         Lay.add_widget( Page )        
 
         Lay.summ_print()
-        print '='*55
+        print('='*55)
 
         F = get_form( form_name='MyForm1', layout=Lay,
                   Left=611,  Height=240,  Top=162,  Width=320, 

@@ -35,11 +35,11 @@ class LPS_File( object ):
         
         
         if new_form_name is None:
-            print "Need a valid new_form_name in lpi_wrapper"
+            print("Need a valid new_form_name in lpi_wrapper")
             sys.exit()
             
         if new_form_name.lower() in self.form_name_set:
-            print "Duplicate form names are NOT allowed in lpi_wrapper"
+            print("Duplicate form names are NOT allowed in lpi_wrapper")
             sys.exit()
             
         self.form_name_set.add( new_form_name.lower() )
@@ -69,11 +69,11 @@ class LPS_File( object ):
         return """<?xml version="1.0" encoding="UTF-8"?>\n""" + ET.tostring( self.xml_root )
     
     def summ_print(self):
-        print 'xml_root =',self.xml_root
-        print 'ProjectSession =',self.ProjectSession
-        print 'Units =',self.Units
+        print('xml_root =',self.xml_root)
+        print('ProjectSession =',self.ProjectSession)
+        print('Units =',self.Units)
         for c in self.unitL:
-            print '    Unit =',c
+            print('    Unit =',c)
         
 
 LPS_TEMPLATE_STR = """<?xml version="1.0" encoding="UTF-8"?>
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     LPS.add_form(new_form_name='ZZZForm')
     
     LPS.summ_print()
-    print '-'*55
+    print('-'*55)
     #print LPS.file_contents()
     
     ET.dump( LPS.xml_root )

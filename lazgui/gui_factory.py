@@ -1,19 +1,19 @@
 """This is the factory function for all GUI elements"""
 import inspect
 
-from laz_gui import LazarusGUI
-from form import Form
-from button import Button
-from edit import Edit
-from label import Label
-from labeled_edit import LabeledEdit
-from layout import Layout, VStackPanel, HStackPanel, GridPanel
-from panel import Panel
-from page_control import PageControl, TabSheet
-from radio_group import RadioGroup
-from listbox import ListBox
-from checkbox import CheckBox
-from combobox import ComboBox
+from .laz_gui import LazarusGUI
+from .form import Form
+from .button import Button
+from .edit import Edit
+from .label import Label
+from .labeled_edit import LabeledEdit
+from .layout import Layout, VStackPanel, HStackPanel, GridPanel
+from .panel import Panel
+from .page_control import PageControl, TabSheet
+from .radio_group import RadioGroup
+from .listbox import ListBox
+from .checkbox import CheckBox
+from .combobox import ComboBox
 
 def key_word_args(paramL, local_dict):
     """Make a dict of key word arguements with their call values"""
@@ -158,10 +158,10 @@ def get_layout(layout_type='vstack', Left=0,  Height=20,  Top=0,  Width=20,
     elif lc_type == 'canvas':
         return Layout( **key_word_args(LAYOUT_PARAML, locals()) )
     else:
-        print '='*30,'WARNING','='*30
-        print '  bad layout_type in call to get_layout, Illegal layout_type = "%s"'%layout_type
-        print '  Using Vertical Stack layout by default = "vstack"'
-        print '='*30,'WARNING','='*30
+        print('='*30,'WARNING','='*30)
+        print('  bad layout_type in call to get_layout, Illegal layout_type = "%s"'%layout_type)
+        print('  Using Vertical Stack layout by default = "vstack"')
+        print('='*30,'WARNING','='*30)
         return VStackPanel( **key_word_args(LAYOUT_PARAML, locals()) )
         
 LAYOUT_PARAML = inspect.getargspec( get_layout )[0]
@@ -188,20 +188,20 @@ GUI_PARAML = inspect.getargspec( get_gui )[0]
 if __name__ == "__main__":
     
     obj = get_edit(edit_type='default', widget_name='GetValue',  initial_value='aBc', label_text='')
-    print obj
+    print(obj)
     obj = get_edit(edit_type='default', widget_name='GetValue',  initial_value='aBc', label_text='xxx')
-    print obj
+    print(obj)
     obj = get_edit(edit_type='other', widget_name='GetValue',  initial_value='aBc', label_text='xxx')
-    print obj
+    print(obj)
     
-    print '-'*55
+    print('-'*55)
     
     obj = get_button()
-    print obj
+    print(obj)
     
     obj = get_layout(layout_type='hstack',Left=123,  Height=123,  Top=123,  Width=123, 
                      TopMargin=123, RightMargin=123, BottomMargin=123, LeftMargin=123)
-    print obj
+    print(obj)
     obj = get_layout(layout_type='xxx',Left=123,  Height=123,  Top=123,  Width=123, 
                      TopMargin=123, RightMargin=123, BottomMargin=123, LeftMargin=123)
     

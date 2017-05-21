@@ -27,9 +27,9 @@ Lay2.add_widget( Button(widget_name='XXX', Width=30) )
 Lay2.summ_print()
 Lay.add_widget( Lay2, row=11, col=2 )
 
-print '='*55
+print('='*55)
 Lay.summ_print()
-print '='*55
+print('='*55)
 
 F = Form( form_name='MyForm1', layout=Lay,
           Left=611,  Height=240,  Top=162,  Width=320, 
